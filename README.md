@@ -13,14 +13,14 @@ see the coordinates being plotted on Goole Map.
 
 The project is build on Windows 10 using MinGw 4.7.2
 
-Compile Sever:
+Compile Client:
 
 gcc -c client.c -I ..\lws-default-20883362\include -I ..\wolfssl-3.15.3 -I ..\wolfssl-3.15.3\wolfssl
 
 gcc  -o client.exe client.o -l ws2_32 -l websockets -L ..\lws-default-20883362\bin\Release
 
 
-Compile Client:
+Compile Server:
 
 gcc -c server.c -I ..\lws-default-20883362\include -I ..\wolfssl-3.15.3 -I ..\wolfssl-3.15.3\wolfssl
 
