@@ -27,6 +27,22 @@ gcc -c server.c -I ..\lws-default-20883362\include -I ..\wolfssl-3.15.3 -I ..\wo
 gcc  -o server.exe server.o -l ws2_32 -l websockets -L ..\lws-default-20883362\bin\Release
 
 
+#NOTE : For building this project on MinGW 4.7.1 
+
+Download the latest 64 bit libwebsockets binary where LWS_METHOD=x64 is there with some more arguments folder name will be like "lws-x64-22747226" from @ https://ci.appveyor.com/project/lws-team/libwebsockets .
+Comment "#define LWS_WITH_LIBUV" from lws_config.h  and build as usual. Remember to change the folder name in your build commands. so commands will be :
+
+For Client:
+gcc -c client.c -I ..\lws-x64-22747226\include -I ..\wolfssl-3.15.3 -I ..\wolfssl-3.15.3\wolfssl
+
+gcc -o client.exe client.o -l ws2_32 -l websockets -L ..\lws-x64-22747226\bin\Release
+
+For Server:
+gcc -c server.c -I ..\lws-x64-22747226\include -I ..\wolfssl-3.15.3 -I ..\wolfssl-3.15.3\wolfssl
+
+gcc -o server.exe server.o -l ws2_32 -l websockets -L ..\lws-x64-22747226\bin\Release
+
+
 # Software component:
 
 Web socket C application @ https://github.com/iamscottmoyers/simple-libwebsockets-example
